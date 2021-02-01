@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Statflo Conversations | Matthew Pereira</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload portfolio-page">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section class="intro">
+						<header>
+							<h1><a href="index.html">Matthew Pereira</a></h1>
+							<p>Case Study:<br><strong>Statflo 1:1 Conversations</strong> </p>
+							<ul class="actions">
+								<li><a href="#first" class="arrow scrolly"><span class="label">Next</span></a></li>
+							</ul>
+						</header>
+						<div class="content">
+							<div class="gallery">
+								<a href="images/conversations-patent-full.png" class="full"><img src="images/conversations-patent-thumb.jpg" alt="" /></a>
+							</div>
+						</div>
+					</section>
+
+				<!-- Section -->
+				<section id="first">
+					<header>
+						<h2>Context</h2>
+					</header>
+					<div class="content">
+						<img src="images/conversations-industry.png" class="floatRight" />
+						<p>I joined <a href="https://statflo.com" target="_blank" >Statflo Inc.</a> as the ninth employee after working on a few projects together as a freelance designer and developer. The company's vision was to reinvent the wireless telecom industry, which to date was focused on locking customers into long and expensive contracts, and neglecting customer service. With the rise of online marketplaces like Amazon or Ebay, and more strict laws about contracts, large carriers and small dealerships alike were struggling to retain their customers.</p>
+						<p>The first product I worked on at Statflo was a CRM enhancement that allowed wireless retail employees in dealerships and carriers across North America to view a customer profile, and make a call to that customer with a click of a button. Key to this functionality was the ability to call through the browser, or connecting the customer to a sales rep's landline or cell phone.</p>
+						<p>In-app calling was a way of merging an existing sales process into our CRM product to create additinal value for us, and create a record of every call for auditing and statistical analysis - a huge added value for our data-oriented customers. Once we had this functionality in our product, however, it was time to take on something completely new.</p>
+					</div>
+				</section>
+
+				<!-- Section -->
+				<section>
+					<header>
+						<h2>Opportunity</h2>
+					</header>
+					<div class="content">
+						<p>Through our other tools like in-app calling, we had the data to prove a direct correlation between frequency of contact, customer satisfaction, increased sales numbers. However, customers were also asking for asynchronous communication, were distrustful of sales calls, and <strong><em>hated</em></strong> being put on hold. For these reasons, our CEO was betting on text messaging being the next big thing.</p>
+						<p>Staff in wireless retailers are often 16-23 year olds who are much more accomplished at texting than opening up a conversation over the phone. While voice communications are critical for some sales situations, they're often seen to be too intrusive for account-related conversations. Our leadership team wanted us to have the first sales tool with the ability to capitalize on all this by adding one-to-one converations via SMS.</p>
+					</div>
+				</section>
+
+				<!-- Section -->
+				<section>
+					<header>
+						<h2>Problem Discovery</h2>
+					</header>
+					<div class="content">
+						<p>With the help of the company CEO, I floated the idea past a few key dealership contacts to learn more about some of the antigoals and constraints we would have to keep in mind for our first iteration. This part of the process also involved building a comprehensive <strong>persona</strong> representing the sales representatives that would be using this product. We whiteboarded the results of each conversation, giving us direction and validating our ideas with evidence to back up each insight we produced. Our primary persona was a sales associate who needed a painless way to keep up with customers via text-message while also juggling the duties of managing the store at the same time.</p> 
+
+						<div class="gallery">
+							<a href="images/conversations-whiteboard2-full.png" class="portrait"><img src="images/conversations-whiteboard2-thumb.jpg" alt="" /></a>
+							<a href="images/conversations-whiteboard3-full.png" class="portrait"><img src="images/conversations-whiteboard3-thumb.jpg" alt="" /></a>
+						</div>
+
+						<p>There were technical issues to keep in mind with how I first prototyped and tested the new feature as well. I was lucky to have a close working relationship with two coworkers who would serve to drive out the service architecture, a database schema, and push back on ideas I had in order to limit the scope and drive out a user journey that would delight our customers without setting the small engineering team up for any insurmountable difficulty.</p>
+
+						<p>By the end of this stage we had a well defined brief for our MVP with prioritized user stories (simplified here).</p>
+
+						<div class="gallery">
+							<a href="images/conversations-brief-full.png" class="full"><img src="images/conversations-brief-thumb.jpg" alt="" /></a>
+						</div>
+					</div>
+				</section>
+
+				<!-- Section -->
+				<section>
+					<header>
+						<h2>Prototyping</h2>
+					</header>
+					<div class="content">
+						<p>To further validate the idea, I built a dummy prototype in javascript, HTML, and CSS, rigging it to reply to messages with a preset script so that I could demonstrate the functionality involved without any backend services to support it. After a round of feedback, the next 'prototype' was a single page webapp that customers could open on their own phones, type mssages, and interact with a bot to discover the different workflows that our fledgling product was proposing.</p>
+
+						<div class="gallery">
+							<a href="images/conversations-prototype-full-1.png" class="portrait top"><img src="images/conversations-prototype-thumb-1.jpg" alt="" /></a>
+							<a href="images/conversations-prototype-full.png" class="portrait top"><img src="images/conversations-prototype-thumb.jpg" alt="" /></a>
+						</div>
+
+						<p>The best part about this approach was that I could reuse and iterate on each component I could build as I collaborated with other engineers to build up a database, message queue, and API connections to start actually sending text messages. While we designed the front end of the product and the user experience, we were also creating a sales process for store associates to use, an entirely new database schema, authentication workflows, and microservices to queue and deliver messages via the the <a href="https://twilio.com" target="_blank">Twilio API</a>.</p>
+
+						<div class="floatRight">
+							<img src="images/conversations-prototype-thumb copy.jpg" alt="" />
+							<span>Feedback coming through the first live prototype</span>
+						</div>
+						
+						<p>We put up a version that our initial stakeholders could use to actually text their own phones.</p>
+						<p><strong>Customers liked it!</strong> They got excited to start adopting it as a part of their sales and customer outreach processes before it was even fully functional.</p>
+					</div>
+				</section>
+
+				<!-- Section -->
+				<section>
+					<header>
+						<h2>Iterating on the MVP</h2>
+					</header>
+					<div class="content">
+						<p>As the project grew, it evolved from a skunkworks-style experiment to something the company could staff full time. I started to work shoulder-to-shoulder with a dedicated product manager, as both designer and lead front-end engineer, creating a fast feedback loop. We could implement a change in the morning, ship it before lunch, and collect feedback in the afternoon to iterate on the following day.</p>
+						<img src="images/conversations-ui-prototype-full.png" alt="" class="floatRight" />
+						<p>In doing so, we developed a short list of key customers to act as alpha testers on our prototype version. These customers put one or two sales representatives on the project at first, and helped us iron out bugs as well as develop the sales tactics and microcopy that was crucial for making the product both effective and easy to use.</p>
+						<p>We quickly discovered new patterns that we weren't expecting through this feedback loop: while we were envisioning our product as a mobile app used on the floor of carrier and dealer level stores, our customers were having so much success withit they were starting to use it on desktop computers in call-center environments to maximize how many messages they could send. We swiftly pivoted to expand the responsive design to work across multiple devices.</p>
+						<p>At this stage we were ready to commit to a more polished UI, and I developed a UI kit in Figma that we could use to quickly draft new ideas. This made it possible to make swift design decisions with our internal team and alpha testers alike.</p>
+						<p>As the core functionality stabilized and we turned our attention to other concerns, this UI kit made it possible to validate or invalidate more of our ideas without needing to write and ship new code.</p>
+					</div>
+				</section>
+
+				<!-- Section -->
+				<section>
+					<header>
+						<h2>Scale and Integrate</h2>
+					</header>
+					<div class="content">
+						<p>Worked with software architect to design the microservices and database system that would power the final product</p>
+						<p>- Discovered key functionality that would be required to make it customer-ready</p>
+						<p>- Built out desktop version, conversation switcher, error handling, Conversation Starters templating system</p>
+						<p>- Collected metrics to measure impact of different starters, stop offensive messaging, and measure customer sentiment</p>
+					</div>
+				</section>
+
+				<!-- Section -->
+				<section>
+					<header>
+						<h2>What we learned</h2>
+					</header>
+					<div class="content">
+						<p>- 1:1 conversations drive more sales - we could measure the amount of time it took to get from a post-sale check-in to an upsell or accessory purchase</p>
+						<p>- Sales reps loved it</p>
+						<p>- We had a significant lead over all of our competitors, and that made it crucial to keep growing. Next steps: salesforce integration as a platform that could be purchased separately from our CRM software, and re-targeted to different industries.</p>
+					</div>
+				</section>
+
+				<section>
+					<header>
+						<a id="contact" class="anchorLink"></a><h2>Learn More</h2>
+					</header>
+					<div class="content">
+						See the latest iteration of the 1:1 conversations product, branded <a href="https://www.statflo.com/" target="_blank" >Statflo Textkit</a>. Head back to the main page to view other case studies. If you'd like to see more of my design work, <a href="index.html#casestudies">click here to choose from other case studies</a>.
+					</div>
+					<footer>
+						<ul class="items">
+							<li>
+								<h3>Location</h3>
+								<span>Toronto, Canada</span>
+							</li>
+							<li>
+								<h3>Elsewhere</h3>
+								<ul class="icons">
+									<li><a href="https://www.linkedin.com/in/matthewpereira/" target="_blank" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://www.github.com/matthewpereira" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</li>
+						</ul>
+					</footer>
+				</section>
+
+				<!-- Copyright -->
+					<div class="copyright">&copy; 2020. All rights reserved.</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "mjpportfolio",
+  "version": "1.0.0",
+  "main": "/assets/js/main.js",
+  "author": "matthewpereira <mail@matthewpereira.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "watch-sass": "node-sass assets/sass/main.scss assets/css/main.css --watch --source-map-root file://${PWD}/ --source-map-embed true",
+    "compile-sass": "node-sass assets/sass/main.scss assets/css/main.css"
+  },
+  "dependencies": {
+    "kwesforms": "^2.0.4",
+    "node-sass": "^5.0.0"
+  }
+}
