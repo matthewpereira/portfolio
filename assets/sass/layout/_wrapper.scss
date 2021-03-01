@@ -727,10 +727,17 @@ body.is-ie {
 			width: auto;
 			margin: 0 auto;
 			max-height: 50vh;
+			max-width: 25vw;
 		}
 
 		.floatRight {
 			float: right;
+		}
+		
+		.gallery.floatRight {
+			padding-left: 0;
+		}
+		:not(.gallery).floatRight {
 			padding-left: 3rem;
 		}
 
@@ -841,4 +848,29 @@ body.is-ie {
 			padding-bottom: 3rem;
 		}
 	}
+}
+
+.about_more {
+	display: none;
+}
+
+.nav {
+	font-size: 0.95rem;
+}
+
+.blue {
+	height: 100vh;
+}
+
+.blue img {
+	object-fit: cover;
+	height: calc(100vh - 48px);
+	width: 100%;
+	
+}
+
+.blue span {
+	font-size: 12px;
+	margin: 0 12px;
+	float: right;
 }

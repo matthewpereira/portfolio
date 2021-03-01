@@ -205,4 +205,9 @@
 
 					});
 
+			$("[data-target='js_about']").click(function(event) {
+				$("[data-target='js_about']").hide();
+				$('.about_more').slideDown(1000);
+				event.preventDefault();
+			});
 })(jQuery);

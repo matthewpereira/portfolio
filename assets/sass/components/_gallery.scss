@@ -43,6 +43,19 @@
 		object-fit: contain !important;
 	}
 
+	.floatRight {
+		img {
+			max-width: 30vw;
+		}
+		span {
+			display: block;
+			font-size: 12px;
+			text-align: right;
+			margin-top: -6px;
+			max-width: 30vw;
+		}
+	}
+
 	.gallery {
 		$gutter: _size(gallery-gutter);
 
@@ -305,22 +318,11 @@
 		}
 	}
 
-	.floatRight {
-		img {
-			max-width: 30vw;
-		}
-		span {
-			display: block;
-			font-size: 12px;
-			text-align: right;
-			margin-top: -6px;
-			max-width: 30vw;
-		}
-	}
+
 
 	.narrow {
 		img, span {
-			max-width: 15vw;
+			max-width: 19vw;
 		}
 	}
 
@@ -330,4 +332,35 @@
 		text-align: right;
 		padding-top: 8px;
 		margin-bottom: -24px;
+	}
+
+	.gallery.floatRight {
+		width: 30vw;
+		margin-left: 2.75rem;
+
+		a {
+			width: 100%;
+			margin: 1rem 0;
+
+			img {
+				height: inherit;
+				min-height: inherit;
+				object-fit: inherit;
+				object-position: inherit;
+				width: inherit;
+				padding-left: 0;
+			}
+		}
+		a + a {
+			display: inherit;
+			margin: inherit;
+			width: inherit;
+			border-bottom: inherit;
+			outline: 0;
+			position: inherit;
+		}
+	}
+
+	.gallery.floatRight.narrow {
+		width: 19vw;
 	}
