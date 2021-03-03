@@ -789,7 +789,8 @@ body.is-ie {
 		#wrapper > section > header h2 {
 			position: sticky;
 			top: 24px;
-			
+			padding-bottom: 40vh;
+
 			// Line connector.
 			&:before {
 				right: -50px;
