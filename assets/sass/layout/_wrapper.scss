@@ -787,6 +787,9 @@ body.is-ie {
 		}
 
 		#wrapper > section > header h2 {
+			position: sticky;
+			top: 24px;
+			
 			// Line connector.
 			&:before {
 				right: -50px;
@@ -873,4 +876,10 @@ body.is-ie {
 	font-size: 12px;
 	margin: 0 12px;
 	float: right;
+}
+
+.subnav {
+	list-style: none;
+	line-height: 1.5;
+	font-size: 16px;
 }
