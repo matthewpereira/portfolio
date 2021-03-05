@@ -789,7 +789,7 @@ body.is-ie {
 		#wrapper > section > header h2 {
 			position: sticky;
 			top: 24px;
-			padding-bottom: 40vh;
+			padding-bottom: 100px;
 
 			// Line connector.
 			&:before {
@@ -862,18 +862,18 @@ body.is-ie {
 	font-size: 0.95rem;
 }
 
-.blue {
+.heroArea {
 	height: 100vh;
 }
 
-.blue img {
+.heroArea img {
 	object-fit: cover;
 	height: calc(100vh - 48px);
 	width: 100%;
 	
 }
 
-.blue span {
+.heroArea span {
 	font-size: 12px;
 	margin: 0 12px;
 	float: right;
@@ -883,4 +883,19 @@ body.is-ie {
 	list-style: none;
 	line-height: 1.5;
 	font-size: 16px;
+}
+
+.headshot {
+	margin-left: 20px;
+	margin-top: -45px;
+	float: right;
+}
+.headshot img {
+	max-width: 200px;
+}
+
+.headshot span {
+	font-size: 12px;
+	text-align: right;
+	display: block;
 }
