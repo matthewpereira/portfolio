@@ -885,6 +885,20 @@ body.is-ie {
 	font-size: 16px;
 }
 
+.featureLink {
+    float: right;
+    width: 25%;
+    min-width: 360px;
+    padding: 1rem;
+	margin: 0 0 1rem 2rem;
+	font-size: 16px;
+	background-color:  _palette(accent-bg);
+	
+	a {
+		font-weight: 400;
+	}
+}
+
 .headshot {
 	margin-left: 20px;
 	margin-top: -45px;
