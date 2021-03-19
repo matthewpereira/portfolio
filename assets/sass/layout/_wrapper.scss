@@ -913,3 +913,32 @@ body.is-ie {
 	text-align: right;
 	display: block;
 }
+
+@media screen and (min-width: 1921px) {
+
+	:not(.portfolio-page) > #wrapper > section:last-of-type > header h2:after {
+		right: -60px;
+	}
+
+	:not(.portfolio-page) > #wrapper > section:last-of-type > header::after {
+		right: calc(50vw + 113px);
+	}
+
+	.portfolio-page #wrapper > section > header h1::before {
+		top: 22px;
+	}
+
+	.portfolio-page #wrapper > section > header h1::after {
+		right: -23px;
+		margin-top: -49px;
+	}
+
+	.portfolio-page #wrapper > section > header h2::before {
+		top: 23px;
+	}
+
+	.portfolio-page #wrapper > section:last-of-type > header::after {
+		left: calc(250px + 11px);
+		bottom: 13px;
+	}
+}
