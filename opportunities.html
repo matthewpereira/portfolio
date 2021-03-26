@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Statflo Opportunities | Matthew Pereira</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload portfolio-page">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section class="intro">
+						<header>
+							<h1><a href="index.html">Matthew Pereira</a></h1>
+							<p>Case Study:<br><strong>Statflo Opportunities</strong></p>
+							<ul class="subnav">
+								<li><em>Navigate:</em> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#context" class="scrolly">Context</a></li>
+								<li><a href="#discovery" class="scrolly">Discovery</a></li>
+								<li><a href="#workflow" class="scrolly">Workflow</a></li>
+								<li><a href="#research" class="scrolly">Research</a></li>
+								<li><a href="#figma" class="scrolly">High Fidelity</a></li>
+								<li><a href="#outcomes" class="scrolly">Outcomes</a></li>
+							</ul>
+						</header>
+						<div class="content">
+							<div class="gallery">
+								<a href="images/opportunities-08-full.png" class="full left"><img src="images/opportunities-08-thumb.jpg" alt="" /><span>Detail of the final clickable screen prototype built in Figma</a>
+							</div>
+						</div>
+					</section>
+
+				<!-- Section -->
+					<section id="first">
+						<header>
+							<a id="context" class="anchorLink"></a><h2>Context</h2>
+						</header>
+						<div class="content">
+							<blockquote>Statflo had an opportunity problem.</blockquote>
+							<p>We were most of the way through a full redesign of our CRM product - new colours, new fonts, new button styles, new and more powerful layouts, and an emphasis on every view in our comprehensive app being designed to work on any screen or device. It was the first major redesign in 3 out of the 4 years that the startup had been in business, and there were a lot of moving parts.</p>
+
+							<p>One of the last functions in our Accounts view, which sales representatives used to look up everything in a customer's history - as well as ongoing sales deals - was the opportunity funnel functoinality. Confined to a tab in the Accounts view, the Opportunities feature allowed Sales Reps the ability to track ongoing deals, and look up past deals - whether they were won or lost.</p>
+								
+							<p>It looked bad, outdated and out of place in the midst of the new dashboard theme:</p>
+
+							<div class="gallery">
+								<a href="images/opportunities-01-full.png" class="full fit"><img src="images/opportunities-01-thumb.jpg" alt="" />
+								<span>The old Opportunities layout, with a design that didn't scale, and a colour scheme that didn't match the rest of our redesigned UI.</span>
+								</a>
+							</div>
+
+							<p>What was worse, Sales Reps hated it - when questioned about the sales funnel and opportunity tracking aspects of Statflo's CRM, only 25% rated them positively.</p>
+
+							<p>I was the only full-time designer in the company, and I had been championing a new design-first process that was getting traction, and the CEO of the company gave me a couple weeks to not only design a new user experience for this feature, but also to do user testing to make sure we designed it properly.</p>
+						</div>
+					</section>
+
+					<!-- Section -->
+					<section id="first">
+						<header>
+							<a id="discovery" class="anchorLink"></a><h2>Discovery</h2>
+						</header>
+						<div class="content">
+							<p>In order to effectively audit the current experience and improve on it, I started by interviewing real sales reps from a number of different carriers. They raised a multitude of complaints, and different stores had come up with various workarounds and shortcuts to account for awkward behavior.</p>
+
+							<p>There were obvious aesthetic issues to address, and I catalogued feedback to build a case for a new UI, shown here at Sharpie-fidelity wireframes superimposed on the existing Accounts page:</p>
+								
+							<div class="gallery">
+								<a href="images/opportunities-02-full.png" class="full fit"><img src="images/opportunities-02-thumb.jpg" alt="" />
+								<span>New slimmer opportunity cards, showing more of the detail Sales Reps wanted.</a>
+							</div>
+
+							<p>Each new card element could be expanded to show more detail when needed, but otherwise showed precisely the amount of information that Sales Reps wanted at a glance, and allowed many more opportunities to be viewed on screen at one time without scrolling.</p>
+
+							<div class="gallery">
+								<a href="images/opportunities-03-full.png" class="full fit"><img src="images/opportunities-03-thumb.jpg" alt="" />
+								<span>Rich detail was available with a single click, but hidden away otherwise.</a>
+							</div>
+
+							<p>In addition, users could quickly alter the opportunity stage with one click, and gained inline controls for reassignment, editing, and deletion tasks that used to require multi-step workflows in modals.</p>
+
+							<blockquote>We showed our initial research participants, and they loved it.</blockquote>
+						</div>
+					</section>
+
+					<!-- Section -->
+					<section id="first">
+						<header>
+							<a id="workflow" class="anchorLink"></a><h2>Workflow Considerations</h2>
+						</header>
+						<div class="content">
+							<p>There was another step to consider, however: <strong>creating and editing opportunities</strong>. This was the part of the workflow that Sales Reps <em>hated</em>, as the previous process was tedious, difficult, and prone to error.</p>
+
+							<p>I drafted a new workflow based on their feedback and input from other key stakeholders in the product and customer success teams at Statflo. There were several opinions on what would work best for adding and editing products - some liked a wizard style with just the bare minimum detail at each step, others liked everything on the same screen, and there were multiple variants in between as well.</p>
+
+							<div class="gallery">
+								<a href="images/opportunities-04-full.png" class="full fit"><img src="images/opportunities-04-thumb.jpg" alt="" />
+								<span>Several different UX workflows for creating and editing opportunities, built from input from user research.</a>
+							</div>
+
+							<p>In order to make a data-driven decision, I elected to test the variations with clickable protoypes made from my initial low-fidelity wireframes, and then craft a user study based on a new higher fidelity coded prototype.</p>
+						</div>
+					</section>
+					
+					<section>
+						<header>
+							<a id="research" class="anchorLink"></a><h2>Further User Research</h2>
+						</header>
+						<div class="content">
+							<h3>Prototyping</h3>
+							<p>I spent a morning and afternoon putting together a single-page webapp in React.js, with minimal styling. The goal was to strip the product selection and editing process down to its minimum parts, and test the variations on how information and user controls were to be presented.</p>
+							
+							<div class="gallery">
+								<a href="images/opportunities-05-full.png" class="full fit"><img src="images/opportunities-05-thumb.jpg" alt="" />
+								<span>React prototype for live user testing</a>
+							</div>
+							
+							<h3>Testing</h3>
+								
+							<p>For the actual test, I recruited participants from a nearby store, our Customer Success team (who were experts in creating opportunities already) and Sales Reps from Statflo itself (who had never interacted with this part of the product). One by one in a quiet room set up with a typical Sales Rep's workstation an the prototype, I explained the task to them from a prepared script, had them perform a series of tasks on each variation of the opportunity products workflow, and documented their progress in detail in an Airtable.</p>
+								
+							<div class="gallery">
+								<a href="images/opportunities-test-full.png" class="full fit"><img src="images/opportunities-test-thumb.jpg" alt="" />
+								<span>Collecting data from my user testing participants</a>
+							</div>
+							
+							<h3>Documentation</h3>
+
+							<p>I recorded each session at the screen level, as well as capturing audio from the participants so that I could make sure to capture their thoughts as they talked through the tasks and voiced complaints. I was also taking notes in the Airtable to record where users struggled, workarounds that power users employed out of habit, and points in the process where users missed a step entirely. However, another key point was timing the participants with each variation of the workflow, and then asking which workflow they <em>perceived</em> to be the fastest.</p>
+
+							<h3>Results</h3>
+							<p>This perceptual question proved to be an illuminating data point. Although task success in each variation was split between two workflows, depending mostly on whether the users were from one of the more experienced groups or not, the variation they <em>felt</em> to be the fastest, and gave the most positive ratings otherwise, was overwhelmingly <strong>Variation B</strong>, which employed a dropdown product selector and then staged the selected products in the lower part of the page until the user was ready to submit them. Additionally, this same variation had the lowest rate of user error.</p>
+
+							<p>By the end of a day of user testing, we had derisked the decision of which variation to choose, and had uncovered additional improvements that could be made to labels, searching functionality, and keyboard entry (which our veteran sales reps overwhelmingly relied on to speed up the process).</p>
+						</div>
+					</section>
+
+					<section>
+						<header>
+							<a id="figma" class="anchorLink"></a><h2>High Fidelity</h2>
+						</header>
+						<div class="content">
+							<p>With our ideal workflow now clear, the next steps were to expand on the product's design system in Figma, and craft the final look and feel for the feature.</p>
+							
+							<div class="gallery">
+								<a href="images/opportunities-06-full.png" class="full fit"><img src="images/opportunities-06-thumb.jpg" alt="" />
+								<span>New components for the revised Opportunities workflow crafted as part of the Statflo CRM design system, in Figma</a>
+							</div>
+							
+							<p>In order to set our engineers up for success, I wired the various components into views that could be referenced to create pixel-perfect responsive designs in code, for final QA and then shipping to our customers.<p>
+
+							<p>Additionally, since the prototype used the same Javascipt framework as we used in the actual product, the bit of business logic I had built out for the user testing prototype could be used as a starting point for the final code.</p>
+								
+							<div class="gallery">
+								<a href="images/opportunities-07-full.png" class="full fit"><img src="images/opportunities-07-thumb.jpg" alt="" />
+								<span>Clickable prototype of the full opportunity creation and editing workflow, at screen fidelity.</a>
+							</div>
+							
+							<p>Doing this made for a pain-free developer handoff. Our front-end engineers could sample colours, measure margins, and click back and forth through the prototypes to determine styling and behavior at their own pace, without having to check in with me throughout the process.</p>
+
+							<div class="gallery">
+								<a href="images/opportunities-08-full.png" class="full fit"><img src="images/opportunities-08-thumb.jpg" alt="" />
+								<span>Clickable prototype at screen fidelity, detail.</a>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<header>
+							<a id="outcomes" class="anchorLink"></a><h2>Outcomes</h2>
+						</header>
+						<div class="content">
+							<p>In its entirity, the project took four weeks from conception to delivery. This timespan involved a lot of long hours and hard work, both from me and from the engineering team, but de-risking the workflow as early as possible in the product meant that the new and improved opportunities feature only needed to be designed and engineered once, and started winning over Sales Reps as soon as it was delivered.</p>
+
+							<p>We rolled out the new feature to a group of dealerships that had opted into trialing beta features, in order to ensure that the back-end and database functionality was flawless before we gave it to the rest of our customer base.</p>
+
+							<blockquote>When surveyed a month later, 93% (28 out of 30 contacted) of this early adopter group reported a favorable impression of the sales and opportunity funnel features, up from 25% at the beginning of the project.</blockquote>
+						</div>
+					</section>
+					
+					<section>
+						<header>
+							<a id="contact" class="anchorLink"></a><h2>Learn More</h2>
+						</header>
+						<div class="content">
+							Learn more about the CRM product and sales tools by visiting <a href="https://www.statflo.com/" target="_blank" >Statflo</a>. When you're ready, <a href="index.html#casestudies">click here to choose from other case studies</a>.
+						</div>
+						<footer>
+							<ul class="items">
+								<li>
+									<h3>Location</h3>
+									<span>Toronto, Canada</span>
+								</li>
+								<li>
+									<h3>Elsewhere</h3>
+									<ul class="icons">
+										<li><a href="https://www.linkedin.com/in/matthewpereira/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://www.github.com/matthewpereira" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									</ul>
+								</li>
+							</ul>
+						</footer>
+					</section>
+
+				<!-- Copyright -->
+					<div class="copyright">&copy; 2020. All rights reserved.</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
