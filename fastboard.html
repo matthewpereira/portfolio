@@ -1,236 +1,355 @@
 <!DOCTYPE HTML>
 
 <html>
-	<head>
-		<title>Fastboard Case Study | Matthew Pereira</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload portfolio-page">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+<head>
+	<title>Fastboard Case Study | Matthew Pereira</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+</head>
 
-				<!-- Intro -->
-					<section class="intro">
-						<header>
-							<h1><a href="index.html">Matthew Pereira</a></h1>
-							<p>Case Study:<br><strong>Superpowered Concourse Web UI</strong></p>
-							<ul class="subnav">
-								<li><em>Navigate:</em> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#context" class="scrolly">Context</a></li>
-								<li><a href="#discovery" class="scrolly">Discovery</a></li>
-								<li><a href="#problem" class="scrolly">Framing</a></li>
-								<li><a href="#solutions" class="scrolly">Solutions</a></li>
-								<li><a href="#outcomes" class="scrolly">Outcomes</a></li>
-							</ul>
-						</header>
-						<div class="content">
-							<div class="gallery">
-								<a href="images/fastboard-full.png" class="full left"><img src="images/fastboard-full.png" alt="" /></a>
-							</div>
-						</div>
-					</section>
+<body class="is-preload portfolio-page">
 
-				<!-- Section -->
-					<section id="first">
-						<header>
-							<a id="context" class="anchorLink"></a><h2>Context</h2>
-						</header>
-						<div class="content">
-							<div class="floatRight narrow gallery">
-								<a href="https://twitter.com/alekssaul/status/1091465468366462977?s=20" target="_blank">
-									<img src="images/fastboard_tesla.jpg" alt="" />
-									<span>Concourse CI deploying Cloud Foundry from a Tesla's main dashboard display. 🤯 </span>
-								</a>
-							</div>
+	<!-- Wrapper -->
+	<div id="wrapper">
 
-							<blockquote><a href="https://tanzu.vmware.com/concourse">Concourse CI</a> is a cloud-native, container-first, platform-agnostic tool lovingly crafted to serve the automation needs of developers the world over.</blockquote>
-							<p>The product lets engineers and businesses create automation pipelines that perform tasks in series or in parallel, often with one pipeline triggering another based on its success or failure. Companies the world over have created pipelines for virtually everything that can be automated. We've seen pipelines for <strong>automatically scaling infrastructure around the globe to handle massive Black Friday sales</strong> running alongside pipelines for <strong>automatically ordering pizza for the office every Friday night</strong> in the same deployment.</p>
-
-							<p>This product is used by everyone from single-developer startups to the most demanding multi-cloud global enterprises in the world, and they all have different needs and expectations. This makes developing new features a challenging task! Maintaining flexibility and performance for every deployment is difficult with so vast a landscape of users and use cases.</p>
-
-							<p>This case study began as a generic dive into performance complaints from our users, and ended up uncovering this issue and several others. Our user research led to some interesting solutions that gave this Super Admin experience smooth performance on any machine, for any Concourse deployment.</p>
-						</div>
-					</section>
-
-					<!-- Section -->
-					<section>
-						<header>
-							<a id="discovery" class="anchorLink"></a><h2>Discovery</h2>
-						</header>
-						<div class="content">
-							<p>The Concourse team interacts with its open source community and customer-base on a daily basis, collecting and cataloging feedback. This research initiative originated because our 2019 customer and community surveying efforts revealed that performance was one of the top pain points for our users. No matter how good a product is, users will want it to perform better. However, 'performance' can mean more than just one thing to different groups of users.</p>
-
-							<p>If I were working in a green-field project, this part of the process would involve creating and validating personas, and other typical design rituals. Concourse is a mature product, however, so in this scenario we had a wealth of demographic, configuration, needs and wants, pain points, and other data points collected through our survey data that we could use to segment and qualify our problem.</p>
-
-							<div class="gallery">
-								<a href="images/fastboard-surveydata.png" class="full">
-									<img src="images/fastboard-surveydata.png" alt="" />
-									<span>A snippet of survey Data from our community of Concourse users. We use Airtable to intelligently sort and cross-reference hundreds of thousands of data points.</span>
-								</a>
-							</div>
-
-							<p>Delving through the responses from these surveys provided us with a variety of different suggestions and opportunities. In order to find out exactly which performance issues were the most pertinent and valuable for us to solve, we had to begin with user research to uncover more specific insights.</p>
-						</div>
-					</section>
-
-					<!-- Section -->
-					<section>
-						<header>
-							<a id="problem" class="anchorLink"></a><h2>Problem Definition and Framing</h2>
-						</header>
-						<div class="content">
-							<p>Starting with teams in our company who use Concourse as part of their path to production, then reaching out to key customers, and then to open source users running mission-critical Concourse installations, we sought to validate four key performance issues that had been reported:</p>
-
-							<ol>
-								<span class="listemoji"><img src="images/emoji-hourglass.png" /></span>
-								<li class="emojilist"><strong>Time to first paint</strong> - Issues where the Concourse Web UI was slow to respond to a browser's request, leading to a delay before users see <em>anything</em> load on screen</li>
-								<span class="listemoji"><img src="images/emoji-lock.png" /</span>
-								<li class="emojilist"><strong>Time to interactivity</strong> - Issues where the Concourse web instance loaded, only to appear 'locked' while job and task information is loaded from the API</li>
-								<span class="listemoji"><img src="images/emoji-turtle.png" /</span>
-								<li class="emojilist"><strong>Scrolling and interaction performance</strong> - Issues where the user's browser can't render the page quickly enough to provide smooth scrolling frame rates, or clicks the user makes when navigating or starting tasks aren't responsive without noticeable delays.</li>
-								<span class="listemoji"><img src="images/emoji-snowflake.png" /</span>
-								<li class="emojilist"><strong>Long term performance over time between refreshes</strong> - Issues where the Web UI performance would degrade and eventually freeze up after being left open as a dashboard for hours or days at a time.</li>
-							</ol>
-								
-							<p>I devised a research plan and interview script that focused on observing the actual behavior of our users - their Concourse instances, their computers, their choice of browser, their internet connections, and also their specific workflows and needs - while we guided them through their everyday tasks. This contextual inquiry was conducted with my PM and a member of our engineering team in each interview, so that they could take notes and understand the insights revealed first-hand, developing their own perspectives on what we were learning while I worked with each participant.</p>
-
-							<div class="gallery">
-								<a href="images/fastboard_interview.jpg" class="full">
-									<img src="images/fastboard_interview.jpg" alt="" />
-									<span>Clockwise from right: me, my PM, and an engineer from our team conducting a remote research interview over Zoom from our Toronto offices.</span>
-								</a>
-							</div>
-							
-							<img src="images/fastboard_prioritization.jpg" class="floatRight" />
-							
-							<p><strong>Through this contextual inquiry and direct observation, we learned that time to interactivity was the most prevelant and the highest priority.</strong> We learned that scrolling and interactivity performance was limited to users running unsupported browsers, but <em>could</em> be a problem across all browsers in the future, if left unchecked. The issue of 'time to first paint' was negligible in any of the production and test environments we observed, no matter what the scale, so it was prioritized behind the others. And lastly, we were able to fully invalidate the fourth issue entirely by following up with the users who had originally reported it - this issue was limited to users running an outdated version of Concourse, and was solved during their next upgrade cycle.</p>
-
-							<blockquote>At this point we had a clear understanding of a multidimensional problem space, an evidence-backed prioritization, and had learned what we needed in order to start developing solutions that we knew would provide real value to our users, without any risk of wasting time on the wrong issue.</blockquote>
-						</div>
-					</section>
-
-					<!-- Section -->
-					<section>
-						<header>
-							<a id="solutions" class="anchorLink"></a><h2>Solutions</h2>
-						</header>
-						<div class="content">
-							<p>Working with what we knew from our research, the team and I were able to replicate the problems our users were experiencing, and then able to determine root causes for each of the performance issues. With the input of the team to help balance business, technical, and user needs, we came up with strategies for alleviating each problem.</p>
-						</div>
-					</section>
-
-					<!-- Section -->
-					<section>
-						<header>
-							<h2>Solving Problem 1</h2>
-						</header>
-						<div class="content">
-							<p>Concourse works by making a request for pipeline and task status for all of the different pipelines on the system when the app loads. This first payload of data can be calculated and delivered in milliseconds on most Concourse installations, but as with all features, scale makes things difficult. When there are hundreds or thousand of complicated pipelines, the first delivery - and every subsequent delivery - slows down.</p>
-
-							<p>Modern applications on the web *ease* this problem by displaying a skeleton or mock UI while the real data is loading - like the empty, shaded tweets and Facebook stories that appear upon first load before the real content flickers into view seconds later. This makes it feel like the app is loading faster than it really is, and lessens the worry that something is wrong that a blank screen or loading spinner might create.</p>
-								
-							<p>We implemented this strategy alongside a caching strategy. Pipeline status changes all the time, but in many use cases the pipelines themselves only change occasionally. By recording a snapshot of the pipelines the first time they load, and then refreshing it from time to time, we could give the Concourse UI enough data to let the users start interacting with it - they could search, scroll, sort, and click - while the live data loads in the background.</p>
-
-							<div class="gallery">
-								<a href="images/fastboard_caching.gif" class="full">
-									<img src="images/fastboard_caching.gif" alt="" />
-									<span>A page refresh using our caching implementation, slowed down many times to make visible the transition from initial load, cache refresh, to live data.</span>
-								</a>
-							</div>
-								
-							<p>Now, even when data was slow to appear, a user's familiar pipelines appeared almost instantly. Users were no longer 'locked' or stalled; they could start navigating working while live data was loading. This meant our product looked and felt blazing fast, even when our users' infrastructure was busy, or their internet connection wasn't ideal. 🏎</p>
-						</div>
-					</section>
-
-					<!-- Section -->
-					<section>
-						<header>
-							<h2>Solving Problem 2</h2>
-						</header>
-						<div class="content">
-							<p>It was no secret on the team that over the years Concourse's web UI had developed a fairly heavy DOM structure - the combination of elements needed to render pipelines and the tasks they contained. This complex and data-rich display is what makes Concourse's UI so valuable, but also meant that before this initiative began the browser had to paint and repaint tens or hundreds of thousands of individual pieces of the interface every second.</p>
-
-							<p>Constantly updating and repainting like this meant that scrolling in some browsers could appear choppy or stutter sporadically. The more pipelines a Concourse deployment was supporting, the more CPU is required to power the front end experience. This isn't a big deal for most users, because most people run fairly modest CI/CD operations... but on the many-thousands-of-pipelines scale that our bigger customers run, the web interface could become unusable. An unusable web interface means operations teams can't observe, manage, and troubleshoot.</p>
-							
-							<p>The team dedicated a pair of engineers for a week to spike on a refactoring strategy. We saw some improvements in these first experiments, but the issue of scale meant that huge customers could still see problems. <strong>Sooner or later, someone would build a Concourse big enough to overload their browser again. We needed a solution that removed scale from the equation.</strong></p>
-							
-							<p>At my previous company Statflo, I had worked with a front-end engineer to implement an infinite scrolling solution to handle many thousands of items in <a href="conversations.html">a messaging app</a>. This strategy removes elements that aren't on screen at any given time, and then dynamically fills them in as needed when the user scrolls. Using this technique, the browser only ever has to keep track of a few hundred elements, no matter how many pipelines and tasks a Concourse deployment may be supporting.</p>
-
-							<div class="gallery">
-								<a href="images/fastboard_infinitescroll.gif" class="full">
-									<img src="images/fastboard_infinitescroll.gif" alt="" />
-									<span>A test showing how pipeline cards are seamlessly created in the DOM on the right as they scroll into view, and then disappear again when the user scrolls up.</span>
-								</a>
-							</div>
-							
-							<p>This implementation had a much more dramatic effect than our first iteration, exponentially improving responsiveness. It essentially levels the playing field between small installations all the way up to the most demanding enterprise environments, since the browser only ever has to handle a little more than the number of elements that can fit in the user's viewport at any one time.</p>
-							
-							<p>Our work tidying up the DOM structure and then implementing the infinite scrolling technique significantly reduced the CPU required to render the web UI, making scrolling issues a thing of the past. With this new code, our test environments scrolled smoothly and responsively in all of the major browsers, no matter how many pipelines we configured.</p>
-						</div>
-					</section>
-
-					<!-- Section -->
-					<section>
-						<header>
-							<a id="outcomes" class="anchorLink"></a><h2>Results & Outcomes</h2>
-						</header>
-						<div class="content">
-							<p>Throughout the initiative we were using a number of different systems to track a baseline for each scenario, and to measure our results - Concourse installations provisioned using virtual infrastructure on GCP and vSphere as well as on-premise hardware in our office. We also tested a number of different configurations to mimic Concourse installations of different scales - many pipelines, few pipelines, pipelines of varying compute requirements, and with different amounts of build histories - in order to get a comprehensive look at how our proposed solutions would affect a wide spectrum of users.</p>
-
-							<p>We were able to reduce the time it took to load all the pipelines and make the app interactive by a factor of between 4x to 5x in our test environments. The more you scale up, the greater the benefits. On its own this change would have made users' lives significantly better, but the additional ability to interact with cached data immediately meant that users hunting for a specific pipeline from our dashboard could begin interacting with the product with as little as a 2 second delay, whereas before our test environments would take as much as 10 to 14 seconds to become interactive.</p>
-
-							<p>We tested these initial results with teams using Concourse internally, and then merged the code into our OSS v6.0.0 release. This gave us the opportunity to get initial feedback from the community while we fine tuned the results, adjusting our next v6.1.0 release to polish the way we represented cached data and then replaced it on the fly once live data was available.</p>
-							
-							<div class="floatRight narrow">
-								<a href="https://www.thoughtworks.com/radar/tools?blipid=928" target="_blank"><img src="images/thoughtworks.png"  /></a>
-								<span>Concourse CI on the <a href="https://www.thoughtworks.com/radar/tools?blipid=928" target="_blank">ThoughtWorks Technology radar report for 2020</a></span>
-							</div>
-							
-							<p><strong>With this and other improvements in the v6 series release, <a href="https://www.thoughtworks.com/radar/tools?blipid=928" target="_blank">ThoughtWorks moved Concourse CI to the 'Trial' ring of their 2020 Technology Radar</a> report,</strong> citing that improved usability was a major factor in their decision. 💪</p>
-							
-							<blockquote>Concourse CI runs faster than ever before with this new v6 code, both in the perceived responsiveness that's provided by skeleton UI and cached data, as well as with significant improvements to the way we fetch data and manipulate it in the browser.</blockquote>
-						</div>
-					</section>
-					
-					<section>
-						<header>
-							<a id="contact" class="anchorLink"></a><h2>Learn More</h2>
-						</header>
-						<div class="content">
-							Check out <a href="https://tanzu.vmware.com/concourse">VMware's product page for Concourse</a>, the <a href="https://concourse-ci.org">Concourse CI open source website</a>, or the project's <a href="https://github.com/concourse/concourse/">GitHub repo</a> to learn more. If you'd like to see more of my design work, <a href="index.html#casestudies">click here to choose from other case studies</a>.
-						</div>
-						<footer>
-							<ul class="items">
-								<li>
-									<h3>Location</h3>
-									<span>Toronto, Canada</span>
-								</li>
-								<li>
-									<h3>Elsewhere</h3>
-									<ul class="icons">
-										<li><a href="https://www.linkedin.com/in/matthewpereira/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-										<li><a href="https://www.github.com/matthewpereira" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-									</ul>
-								</li>
-							</ul>
-						</footer>
-					</section>
-
-				<!-- Copyright -->
-					<div class="copyright">&copy; 2022. All rights reserved.</div>
-
+		<!-- Intro -->
+		<section class="intro">
+			<header>
+				<h1><a href="index.html">Matthew Pereira</a></h1>
+				<p>Case Study:<br><strong>Superpowered Concourse Web UI</strong></p>
+				<ul class="subnav">
+					<li><em>Navigate:</em> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#context" class="scrolly">Context</a></li>
+					<li><a href="#discovery" class="scrolly">Discovery</a></li>
+					<li><a href="#problem" class="scrolly">Framing</a></li>
+					<li><a href="#solutions" class="scrolly">Solutions</a></li>
+					<li><a href="#outcomes" class="scrolly">Outcomes</a></li>
+				</ul>
+			</header>
+			<div class="content">
+				<div class="gallery">
+					<a href="images/fastboard-full.png" class="full left"><img src="images/fastboard-full.png" alt="" /></a>
+				</div>
 			</div>
+		</section>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-	</body>
+		<!-- Section -->
+		<section id="first">
+			<header>
+				<a id="context" class="anchorLink"></a>
+				<h2>Context</h2>
+			</header>
+			<div class="content">
+				<div class="floatRight narrow gallery">
+					<a href="https://twitter.com/alekssaul/status/1091465468366462977?s=20" target="_blank">
+						<img src="images/fastboard_tesla.jpg" alt="" />
+						<span>Concourse CI deploying Cloud Foundry from a Tesla's main dashboard display. 🤯 </span>
+					</a>
+				</div>
+
+				<blockquote><a href="https://tanzu.vmware.com/concourse">Concourse CI</a> is a cloud-native, container-first,
+					platform-agnostic tool lovingly crafted to serve the automation needs of developers the world over.
+				</blockquote>
+				<p>The product lets engineers and businesses create automation pipelines that perform tasks in series or in
+					parallel, often with one pipeline triggering another based on its success or failure. Companies the world over
+					have created pipelines for virtually everything that can be automated. We've seen pipelines for
+					<strong>automatically scaling infrastructure around the globe to handle massive Black Friday sales</strong>
+					running alongside pipelines for <strong>automatically ordering pizza for the office every Friday
+						night</strong> in the same deployment.</p>
+
+				<p>This product is used by everyone from single-developer startups to the most demanding multi-cloud global
+					enterprises in the world, and they all have different needs and expectations. This makes developing new
+					features a challenging task! Maintaining flexibility and performance for every deployment is difficult with so
+					vast a landscape of users and use cases.</p>
+
+				<p>This case study began as a generic dive into performance complaints from our users, and ended up uncovering
+					this issue and several others. Our user research led to some interesting solutions that gave this Super Admin
+					experience smooth performance on any machine, for any Concourse deployment.</p>
+			</div>
+		</section>
+
+		<!-- Section -->
+		<section>
+			<header>
+				<a id="discovery" class="anchorLink"></a>
+				<h2>Discovery</h2>
+			</header>
+			<div class="content">
+				<p>The Concourse team interacts with its open source community and customer-base on a daily basis, collecting
+					and cataloging feedback. This research initiative originated because our 2019 customer and community surveying
+					efforts revealed that performance was one of the top pain points for our users. No matter how good a product
+					is, users will want it to perform better. However, 'performance' can mean more than just one thing to
+					different groups of users.</p>
+
+				<p>If I were working in a green-field project, this part of the process would involve creating and validating
+					personas, and other typical design rituals. Concourse is a mature product, however, so in this scenario we had
+					a wealth of demographic, configuration, needs and wants, pain points, and other data points collected through
+					our survey data that we could use to segment and qualify our problem.</p>
+
+				<div class="gallery">
+					<a href="images/fastboard-surveydata.png" class="full">
+						<img src="images/fastboard-surveydata.png" alt="" />
+						<span>A snippet of survey Data from our community of Concourse users. We use Airtable to intelligently sort
+							and cross-reference hundreds of thousands of data points.</span>
+					</a>
+				</div>
+
+				<p>Delving through the responses from these surveys provided us with a variety of different suggestions and
+					opportunities. In order to find out exactly which performance issues were the most pertinent and valuable for
+					us to solve, we had to begin with user research to uncover more specific insights.</p>
+			</div>
+		</section>
+
+		<!-- Section -->
+		<section>
+			<header>
+				<a id="problem" class="anchorLink"></a>
+				<h2>Problem Definition and Framing</h2>
+			</header>
+			<div class="content">
+				<p>Starting with teams in our company who use Concourse as part of their path to production, then reaching out
+					to key customers, and then to open source users running mission-critical Concourse installations, we sought to
+					validate four key performance issues that had been reported:</p>
+
+				<ol>
+					<span class="listemoji"><img src="images/emoji-hourglass.png" /></span>
+					<li class="emojilist"><strong>Time to first paint</strong> - Issues where the Concourse Web UI was slow to
+						respond to a browser's request, leading to a delay before users see <em>anything</em> load on screen</li>
+					<span class="listemoji"><img src="images/emoji-lock.png" /</span>
+						<li class="emojilist"><strong>Time to interactivity</strong> - Issues where the Concourse web instance
+							loaded, only to appear 'locked' while job and task information is loaded from the API</li>
+						<span class="listemoji"><img src="images/emoji-turtle.png" /</span>
+							<li class="emojilist"><strong>Scrolling and interaction performance</strong> - Issues where the user's
+								browser can't render the page quickly enough to provide smooth scrolling frame rates, or clicks the user
+								makes when navigating or starting tasks aren't responsive without noticeable delays.</li>
+							<span class="listemoji"><img src="images/emoji-snowflake.png" /</span>
+								<li class="emojilist"><strong>Long term performance over time between refreshes</strong> - Issues where
+									the Web UI performance would degrade and eventually freeze up after being left open as a dashboard for
+									hours or days at a time.</li>
+				</ol>
+
+				<p>I devised a research plan and interview script that focused on observing the actual behavior of our users -
+					their Concourse instances, their computers, their choice of browser, their internet connections, and also
+					their specific workflows and needs - while we guided them through their everyday tasks. This contextual
+					inquiry was conducted with my PM and a member of our engineering team in each interview, so that they could
+					take notes and understand the insights revealed first-hand, developing their own perspectives on what we were
+					learning while I worked with each participant.</p>
+
+				<div class="gallery">
+					<a href="images/fastboard_interview.jpg" class="full">
+						<img src="images/fastboard_interview.jpg" alt="" />
+						<span>Clockwise from right: me, my PM, and an engineer from our team conducting a remote research interview
+							over Zoom from our Toronto offices.</span>
+					</a>
+				</div>
+
+				<img src="images/fastboard_prioritization.jpg" class="floatRight" />
+
+				<p><strong>Through this contextual inquiry and direct observation, we learned that time to interactivity was the
+						most prevelant and the highest priority.</strong> We learned that scrolling and interactivity performance
+					was limited to users running unsupported browsers, but <em>could</em> be a problem across all browsers in the
+					future, if left unchecked. The issue of 'time to first paint' was negligible in any of the production and test
+					environments we observed, no matter what the scale, so it was prioritized behind the others. And lastly, we
+					were able to fully invalidate the fourth issue entirely by following up with the users who had originally
+					reported it - this issue was limited to users running an outdated version of Concourse, and was solved during
+					their next upgrade cycle.</p>
+
+				<blockquote>At this point we had a clear understanding of a multidimensional problem space, an evidence-backed
+					prioritization, and had learned what we needed in order to start developing solutions that we knew would
+					provide real value to our users, without any risk of wasting time on the wrong issue.</blockquote>
+			</div>
+		</section>
+
+		<!-- Section -->
+		<section>
+			<header>
+				<a id="solutions" class="anchorLink"></a>
+				<h2>Solutions</h2>
+			</header>
+			<div class="content">
+				<p>Working with what we knew from our research, the team and I were able to replicate the problems our users
+					were experiencing, and then able to determine root causes for each of the performance issues. With the input
+					of the team to help balance business, technical, and user needs, we came up with strategies for alleviating
+					each problem.</p>
+			</div>
+		</section>
+
+		<!-- Section -->
+		<section>
+			<header>
+				<h2>Solving Problem 1</h2>
+			</header>
+			<div class="content">
+				<p>Concourse works by making a request for pipeline and task status for all of the different pipelines on the
+					system when the app loads. This first payload of data can be calculated and delivered in milliseconds on most
+					Concourse installations, but as with all features, scale makes things difficult. When there are hundreds or
+					thousand of complicated pipelines, the first delivery - and every subsequent delivery - slows down.</p>
+
+				<p>Modern applications on the web *ease* this problem by displaying a skeleton or mock UI while the real data is
+					loading - like the empty, shaded tweets and Facebook stories that appear upon first load before the real
+					content flickers into view seconds later. This makes it feel like the app is loading faster than it really is,
+					and lessens the worry that something is wrong that a blank screen or loading spinner might create.</p>
+
+				<p>We implemented this strategy alongside a caching strategy. Pipeline status changes all the time, but in many
+					use cases the pipelines themselves only change occasionally. By recording a snapshot of the pipelines the
+					first time they load, and then refreshing it from time to time, we could give the Concourse UI enough data to
+					let the users start interacting with it - they could search, scroll, sort, and click - while the live data
+					loads in the background.</p>
+
+				<div class="gallery">
+					<a href="images/fastboard_caching.gif" class="full">
+						<img src="images/fastboard_caching.gif" alt="" />
+						<span>A page refresh using our caching implementation, slowed down many times to make visible the transition
+							from initial load, cache refresh, to live data.</span>
+					</a>
+				</div>
+
+				<p>Now, even when data was slow to appear, a user's familiar pipelines appeared almost instantly. Users were no
+					longer 'locked' or stalled; they could start navigating working while live data was loading. This meant our
+					product looked and felt blazing fast, even when our users' infrastructure was busy, or their internet
+					connection wasn't ideal. 🏎</p>
+			</div>
+		</section>
+
+		<!-- Section -->
+		<section>
+			<header>
+				<h2>Solving Problem 2</h2>
+			</header>
+			<div class="content">
+				<p>It was no secret on the team that over the years Concourse's web UI had developed a fairly heavy DOM
+					structure - the combination of elements needed to render pipelines and the tasks they contained. This complex
+					and data-rich display is what makes Concourse's UI so valuable, but also meant that before this initiative
+					began the browser had to paint and repaint tens or hundreds of thousands of individual pieces of the interface
+					every second.</p>
+
+				<p>Constantly updating and repainting like this meant that scrolling in some browsers could appear choppy or
+					stutter sporadically. The more pipelines a Concourse deployment was supporting, the more CPU is required to
+					power the front end experience. This isn't a big deal for most users, because most people run fairly modest
+					CI/CD operations... but on the many-thousands-of-pipelines scale that our bigger customers run, the web
+					interface could become unusable. An unusable web interface means operations teams can't observe, manage, and
+					troubleshoot.</p>
+
+				<p>The team dedicated a pair of engineers for a week to spike on a refactoring strategy. We saw some
+					improvements in these first experiments, but the issue of scale meant that huge customers could still see
+					problems. <strong>Sooner or later, someone would build a Concourse big enough to overload their browser again.
+						We needed a solution that removed scale from the equation.</strong></p>
+
+				<p>At my previous company Statflo, I had worked with a front-end engineer to implement an infinite scrolling
+					solution to handle many thousands of items in <a href="conversations.html">a messaging app</a>. This strategy
+					removes elements that aren't on screen at any given time, and then dynamically fills them in as needed when
+					the user scrolls. Using this technique, the browser only ever has to keep track of a few hundred elements, no
+					matter how many pipelines and tasks a Concourse deployment may be supporting.</p>
+
+				<div class="gallery">
+					<a href="images/fastboard_infinitescroll.gif" class="full">
+						<img src="images/fastboard_infinitescroll.gif" alt="" />
+						<span>A test showing how pipeline cards are seamlessly created in the DOM on the right as they scroll into
+							view, and then disappear again when the user scrolls up.</span>
+					</a>
+				</div>
+
+				<p>This implementation had a much more dramatic effect than our first iteration, exponentially improving
+					responsiveness. It essentially levels the playing field between small installations all the way up to the most
+					demanding enterprise environments, since the browser only ever has to handle a little more than the number of
+					elements that can fit in the user's viewport at any one time.</p>
+
+				<p>Our work tidying up the DOM structure and then implementing the infinite scrolling technique significantly
+					reduced the CPU required to render the web UI, making scrolling issues a thing of the past. With this new
+					code, our test environments scrolled smoothly and responsively in all of the major browsers, no matter how
+					many pipelines we configured.</p>
+			</div>
+		</section>
+
+		<!-- Section -->
+		<section>
+			<header>
+				<a id="outcomes" class="anchorLink"></a>
+				<h2>Results & Outcomes</h2>
+			</header>
+			<div class="content">
+				<p>Throughout the initiative we were using a number of different systems to track a baseline for each scenario,
+					and to measure our results - Concourse installations provisioned using virtual infrastructure on GCP and
+					vSphere as well as on-premise hardware in our office. We also tested a number of different configurations to
+					mimic Concourse installations of different scales - many pipelines, few pipelines, pipelines of varying
+					compute requirements, and with different amounts of build histories - in order to get a comprehensive look at
+					how our proposed solutions would affect a wide spectrum of users.</p>
+
+				<p>We were able to reduce the time it took to load all the pipelines and make the app interactive by a factor of
+					between 4x to 5x in our test environments. The more you scale up, the greater the benefits. On its own this
+					change would have made users' lives significantly better, but the additional ability to interact with cached
+					data immediately meant that users hunting for a specific pipeline from our dashboard could begin interacting
+					with the product with as little as a 2 second delay, whereas before our test environments would take as much
+					as 10 to 14 seconds to become interactive.</p>
+
+				<p>We tested these initial results with teams using Concourse internally, and then merged the code into our OSS
+					v6.0.0 release. This gave us the opportunity to get initial feedback from the community while we fine tuned
+					the results, adjusting our next v6.1.0 release to polish the way we represented cached data and then replaced
+					it on the fly once live data was available.</p>
+
+				<div class="floatRight narrow">
+					<a href="https://www.thoughtworks.com/radar/tools?blipid=928" target="_blank"><img
+							src="images/thoughtworks.png" /></a>
+					<span>Concourse CI on the <a href="https://www.thoughtworks.com/radar/tools?blipid=928"
+							target="_blank">ThoughtWorks Technology radar report for 2020</a></span>
+				</div>
+
+				<p><strong>With this and other improvements in the v6 series release, <a
+							href="https://www.thoughtworks.com/radar/tools?blipid=928" target="_blank">ThoughtWorks moved Concourse CI
+							to the 'Trial' ring of their 2020 Technology Radar</a> report,</strong> citing that improved usability was
+					a major factor in their decision. 💪</p>
+
+				<blockquote>Concourse CI runs faster than ever before with this new v6 code, both in the perceived
+					responsiveness that's provided by skeleton UI and cached data, as well as with significant improvements to the
+					way we fetch data and manipulate it in the browser.</blockquote>
+			</div>
+		</section>
+
+		<section>
+			<header>
+				<a id="contact" class="anchorLink"></a>
+				<h2>Learn More</h2>
+			</header>
+			<div class="content">
+				Check out <a href="https://tanzu.vmware.com/concourse">VMware's product page for Concourse</a>, the <a
+					href="https://concourse-ci.org">Concourse CI open source website</a>, or the project's <a
+					href="https://github.com/concourse/concourse/">GitHub repo</a> to learn more. If you'd like to see more of my
+				design work, <a href="index.html#casestudies">click here to choose from other case studies</a>.
+			</div>
+			<footer>
+				<ul class="items">
+					<li>
+						<h3>Location</h3>
+						<span>Halifax, Canada</span>
+					</li>
+					<li>
+						<h3>Elsewhere</h3>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/matthewpereira/" class="icon brands fa-linkedin-in"><span
+										class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.github.com/matthewpereira" class="icon brands fa-github"><span
+										class="label">GitHub</span></a></li>
+						</ul>
+					</li>
+				</ul>
+			</footer>
+		</section>
+
+		<!-- Copyright -->
+		<div class="copyright">&copy; 2022. All rights reserved.</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+</body>
+
 </html>
