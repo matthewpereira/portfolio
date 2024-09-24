@@ -1,115 +1,116 @@
-///
-/// Paradigm Shift by HTML5 UP
-/// html5up.net | @ajlkn
-/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-///
+@use "sass:color";
 
-/* Button */
+// Paradigm Shift by HTML5 UP
+// html5up.net | @ajlkn
+// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
-	input[type="submit"],
-	input[type="reset"],
-	input[type="button"],
-	button,
-	.button {
-		@include vendor('appearance', 'none');
-		@include vendor('transition', (
-			'background-color #{_duration(transition)} ease-in-out',
-			'box-shadow #{_duration(transition)} ease-in-out',
-			'color #{_duration(transition)} ease-in-out'
-		));
-		background-color: transparent;
-		border-radius: _size(border-radius);
-		border: 0;
-		box-shadow: inset 0 0 0 2px _palette(border);
-		color: _palette(fg-bold) !important;
-		cursor: pointer;
-		display: inline-block;
-		font-family: _font(family-heading);
-		font-size: 0.6rem;
-		font-weight: _font(weight-heading-light);
-		height: (_size(element-height) * 1);
-		letter-spacing: _font(kerning-heading);
-		line-height: (_size(element-height) * 1);
-		padding: 0 2rem;
-		text-align: center;
-		text-decoration: none;
-		text-transform: uppercase;
-		white-space: nowrap;
+// Button
+%button-base {
+  appearance: none;
+  transition: 
+    background-color _duration(transition) ease-in-out,
+    box-shadow _duration(transition) ease-in-out,
+    color _duration(transition) ease-in-out;
+  background-color: transparent;
+  border-radius: _size(border-radius);
+  border: 0;
+  box-shadow: inset 0 0 0 2px _palette(border);
+  color: _palette(fg-bold) !important;
+  cursor: pointer;
+  display: inline-block;
+  font-family: _font(family-heading);
+  font-size: 0.6rem;
+  font-weight: _font(weight-heading-light);
+  height: _size(element-height);
+  letter-spacing: _font(kerning-heading);
+  line-height: _size(element-height);
+  padding: 0 2rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
 
-		&:hover {
-			box-shadow: inset 0 0 0 2px _palette(accent-alt);
-			color: _palette(accent-alt) !important;
-		}
+  &:hover {
+    box-shadow: inset 0 0 0 2px _palette(accent-alt);
+    color: _palette(accent-alt) !important;
+  }
 
-		&:active {
-			background-color: _palette(accent-bg);
-			box-shadow: inset 0 0 0 2px _palette(accent-alt);
-			color: _palette(accent-alt) !important;
-		}
+  &:active {
+    background-color: _palette(accent-bg);
+    box-shadow: inset 0 0 0 2px _palette(accent-alt);
+    color: _palette(accent-alt) !important;
+  }
+}
 
-		&.small {
-			font-size: 0.5rem;
-			height: _size(element-height) * 0.75;
-			line-height: _size(element-height) * 0.75;
-			padding: 0 1.25rem;
-		}
+@mixin button-size($size, $height-multiplier, $font-size, $padding) {
+  font-size: $font-size;
+  height: _size(element-height) * $height-multiplier;
+  line-height: _size(element-height) * $height-multiplier;
+  padding: 0 $padding;
+}
 
-		&.large {
-			font-size: 0.7rem;
-			height: _size(element-height) * 1.0875;
-			line-height: _size(element-height) * 1.0875;
-			padding: 0 3.25rem;
-		}
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button,
+.button {
+  @extend %button-base;
 
-		&.wide {
-			min-width: 13rem;
-		}
+  &.small {
+    @include button-size('small', 0.75, 0.5rem, 1.25rem);
+  }
 
-		&.icon {
-			&:before {
-				margin-right: 0.5rem;
-			}
-		}
+  &.large {
+    @include button-size('large', 1.0875, 0.7rem, 3.25rem);
+  }
 
-		&.fit {
-			width: 100%;
-		}
+  &.wide {
+    min-width: 13rem;
+  }
 
-		&.disabled,
-		&:disabled {
-			@include vendor('pointer-events', 'none');
-			opacity: 0.25;
-		}
+  &.icon::before {
+    margin-right: 0.5rem;
+  }
 
-		&.primary {
-			background-color: _palette(accent);
-			box-shadow: none;
-			color: _palette(fg-bold) !important;
+  &.fit {
+    width: 100%;
+  }
 
-			&:hover {
-				background-color: saturate(lighten(_palette(accent), 15), 10);
-			}
+  &.disabled,
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.25;
+  }
 
-			&:active {
-				background-color: desaturate(darken(_palette(accent), 3), 10);
-			}
-		}
+  &.primary {
+    background-color: _palette(accent);
+    box-shadow: none;
+    color: _palette(fg-bold) !important;
 
-		@include breakpoint('<=small') {
-			font-size: 0.7rem;
-			height: (_size(element-height) * 1.1);
-			line-height: (_size(element-height) * 1.1);
+    &:hover {
+      background-color: color.adjust(_palette(accent), $lightness: 15%, $saturation: 5%);
+    }
 
-			&.large {
-				font-size: 0.8rem;
-				height: _size(element-height) * 1.25;
-				line-height: _size(element-height) * 1.25;
-			}
+    &:active {
+      background-color: color.adjust(_palette(accent), $lightness: -15%, $saturation: 5%);
+    }
+  }
+}
 
-			&.small {
-				font-size: 0.6rem;
-				height: (_size(element-height) * 1);
-				line-height: (_size(element-height) * 1);
-			}
-		}
-	}
+@include breakpoint('<=small') {
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"],
+  button,
+  .button {
+    @include button-size('default', 1.1, 0.7rem, 2rem);
+
+    &.large {
+      @include button-size('large', 1.25, 0.8rem, 3.25rem);
+    }
+
+    &.small {
+      @include button-size('small', 1, 0.6rem, 1.25rem);
+    }
+  }
+}
