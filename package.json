@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "kwesforms": "^2.0.4",
-    "sass": "^1.79.3"
+    "sass": "^1.105.1"
   }
 }
